@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.commit();
 
         navigationView.setCheckedItem(R.id.picker_demo);
-
-
     }
 
     @Override

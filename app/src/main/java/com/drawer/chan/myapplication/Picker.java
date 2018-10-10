@@ -8,12 +8,14 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -55,7 +57,6 @@ public class Picker extends Fragment implements View.OnClickListener{
         }
     }
 
-
     public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
         @Override
@@ -82,16 +83,17 @@ public class Picker extends Fragment implements View.OnClickListener{
             } else {
                 time = hourOfDay + ":" + minute + " AM";
             }
-
             Toast.makeText(getActivity(), time, Toast.LENGTH_SHORT).show();
         }
     }
+
 
     public static class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current time as the default values for the picker
+
             final Calendar c = Calendar.getInstance();
             int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
             int month = c.get(Calendar.MONTH);
@@ -106,6 +108,7 @@ public class Picker extends Fragment implements View.OnClickListener{
             // Do something with the date chosen by the user
             month += 1; // increment month since month starts with 0
             Toast.makeText(getActivity(), year+"-"+month+"-"+dayOfMonth, Toast.LENGTH_SHORT).show();
+
         }
     }
 
